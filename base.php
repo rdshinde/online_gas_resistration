@@ -43,12 +43,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <strong><a class="nav-link active px-md-5" aria-current="page" href="../index.php">Home</a></strong>
+              <strong><a class="nav-link active px-md-5" aria-current="page" href="index.php">Home</a></strong>
             </li>
             <li class="nav-item px-md-3"><a class="nav-link" href="#!">Admin</a></li>
             <li class="nav-item px-md-3"><a class="nav-link" href="#!">Profile</a></li>
             <li class="nav-item px-md-3">
-              <a class="nav-link" href="./public/signup.php"
+              <a class="nav-link" href="signup.php"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -68,7 +68,7 @@
               </a>
             </li>
             <li class="nav-item px-md-3">
-              <a class="nav-link" href="#!" 
+              <a class="nav-link" href="login.php" 
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
