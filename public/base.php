@@ -28,7 +28,7 @@
     <!-- Responsive navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
       <div class="container px-lg-5">
-        <a class="navbar-brand" href="#!">AAR Gas Agency</a>
+        <a class="navbar-brand" href="./index.php">AAR Gas Agency</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -46,7 +46,7 @@
               <strong><a class="nav-link active px-md-5" aria-current="page" href="./index.php">Home</a></strong>
             </li>
             <li class="nav-item px-md-3"><a class="nav-link" href="#!">Admin</a></li>
-            <li class="nav-item px-md-3"><a class="nav-link" href="#!">Profile</a></li>
+            <li class="nav-item px-md-3"><a class="nav-link" href="./profile.php">Profile</a></li>
             <li class="nav-item px-md-3">
               <a class="nav-link" href="./signup.php"
                 ><svg

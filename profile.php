@@ -1,24 +1,9 @@
 <?php
 include_once "public/base.php"
 ?>
-<!-- Header-->
-<header class="py-5">
-  <div class="container px-lg-5">
-    <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
-      <div class="m-4 m-lg-5">
-        <h1 class="display-5 fw-bold">A warm welcome!</h1>
-        <p class="fs-4">
-          <b>AAR Gas Agency</b> now provides services in more than
-          <b>20 cities of Maharashtra</b> . Register yourself now for availing
-          stunning benefits of online system.
-        </p>
-        <a class="btn btn-secondary btn-lg" href="signup.php">Take a New Connection </a>
-      </div>
-    </div>
-  </div>
-</header>
+
 <!-- Page Content-->
-<section class="pt-4">
+<section class="pt-4 my-5">
   <div class="container px-lg-5">
     <!-- Page Features-->
     <div class="row gx-lg-5">
@@ -158,13 +143,13 @@ include_once "public/base.php"
 </section>
 <div class="container px-lg-5 my-5">
   <div class="p-4 p-lg-5 bg-light rounded-3">
-    <h1 class="display-3 text-center ">Welcome, Rohit Sharma</h1>
+    <h1 class="display-3 text-center">Welcome, Rohit Sharma</h1>
     <div class="m-4 m-lg-5">
       <section class="booking">
         <h2 class="display-6 text-center pb-3">Book Your Cylinder Now!</h2>
         <div class="m-4 m-lg-5">
           <form class="row g-3" method="POST" action="profile.php">
-          <div class="col-md-3">
+            <div class="col-md-3">
               <label for="inputPassword4" class="form-label"
                 >Consumer ID*</label
               >
@@ -180,7 +165,7 @@ include_once "public/base.php"
               <label for="inputEmail4" class="form-label">Email*</label>
               <input type="email" class="form-control" id="inputEmail4" />
             </div>
-            
+
             <div class="col-12">
               <label for="inputAddress" class="form-label">Address*</label>
               <input
@@ -225,6 +210,68 @@ include_once "public/base.php"
               </button>
             </div>
           </form>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<div class="container px-lg-2 my-5">
+  <div class="p-1 p-lg-2 rounded-3">
+    <h1 class="display-5 text-center">Your Booking's History</h1>
+    <div class="m-1 m-lg-1">
+      <section>
+        <div
+          class="
+            container
+            table-responsive
+            shadow
+            p-3
+            rounded
+            border
+            col-lg-6 col-xxl-12 col-centered
+            text-center
+          "
+        >
+          <table class="table table-hover p-3">
+            <thead>
+              <tr>
+                <th scope="col">Sr.No.</th>
+                <th scope="col">Booking ID</th>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>01</th>
+                <td>1001</td>
+                <td>31/09/2021</td>
+                <td>Delivered</td>
+                <td>&#8377;990</td>
+                <td><span><button class="btn btn-sm btn-danger">Make Complaint</button></span></td>
+                <td><button class="btn btn-sm btn-secondary">Download Bill</button></td>
+              </tr>
+              <tr>
+                <th>03</th>
+                <td>1002</td>
+                <td>31/10/2021</td>
+                <td>Delivered</td>
+                <td>&#8377;990</td>
+                <td><span><button class="btn btn-sm btn-danger">Make Complaint</button></span></td>
+                <td><button class="btn btn-sm btn-secondary">Download Bill</button></td>
+              </tr>
+              <tr>
+                <th>03</th>
+                <td>1003</td>
+                <td>31/11/2021</td>
+                <td>Delivered</td>
+                <td>&#8377;990</td>
+                <td><span><button class="btn btn-sm btn-danger">Make Complaint</button></span></td>
+                <td><button class="btn btn-sm btn-secondary">Download Bill</button></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
     </div>
