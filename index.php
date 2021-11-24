@@ -1,5 +1,5 @@
 <?php
-include_once "base.php"
+include_once "public/base.php"
 ?>
 <!-- Header-->
 <header class="py-5">
@@ -159,5 +159,5 @@ include_once "base.php"
 </section>
 
 <?php
-include_once "footer.php"
+include_once "public/footer.php"
 ?>
