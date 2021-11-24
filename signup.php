@@ -1,5 +1,5 @@
 <?php
-include_once "base.php"
+include_once "public/base.php"
 ?>
 <section class="py-5">
 <div class="container px-lg-5">
@@ -66,5 +66,5 @@ include_once "base.php"
 </div>
 </section>
 <?php
-include_once "footer.php"
+include_once "public/footer.php"
 ?>
