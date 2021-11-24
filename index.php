@@ -161,21 +161,28 @@ include_once "public/base.php"
     <h1 class="display-3 text-center ">Welcome, Rohit Sharma</h1>
     <div class="m-4 m-lg-5">
       <section class="booking">
-        <h2 class="h2 text-center p-3">Book Your Cylinder Now!</h2>
+        <h2 class="display-6 text-center pb-3">Book Your Cylinder Now!</h2>
         <div class="m-4 m-lg-5">
           <form class="row g-3" method="POST" action="profile.php">
-            <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputEmail4" />
-            </div>
-            <div class="col-md-6">
+          <div class="col-md-3">
               <label for="inputPassword4" class="form-label"
-                >Mobile Number</label
+                >Consumer ID*</label
               >
               <input type="text" class="form-control" id="inputPassword4" />
             </div>
+            <div class="col-md-3">
+              <label for="inputPassword4" class="form-label"
+                >Mobile Number*</label
+              >
+              <input type="text" class="form-control" id="inputPassword4" />
+            </div>
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Email*</label>
+              <input type="email" class="form-control" id="inputEmail4" />
+            </div>
+            
             <div class="col-12">
-              <label for="inputAddress" class="form-label">Address</label>
+              <label for="inputAddress" class="form-label">Address*</label>
               <input
                 type="text"
                 class="form-control"
@@ -196,7 +203,7 @@ include_once "public/base.php"
               </select>
             </div>
             <div class="col-md-2">
-              <label for="inputZip" class="form-label">Pincode</label>
+              <label for="inputZip" class="form-label">Pincode*</label>
               <input type="text" class="form-control" id="inputZip" />
             </div>
             <div class="col-12">
