@@ -12,7 +12,7 @@ include_once "public/base.php"
           <b>20 cities of Maharashtra</b> . Register yourself now for availing
           stunning benefits of online system.
         </p>
-        <a class="btn btn-secondary btn-lg" href="#!">Take a New Connection </a>
+        <a class="btn btn-secondary btn-lg" href="signup.php">Take a New Connection </a>
       </div>
     </div>
   </div>

@@ -46,7 +46,7 @@
               <strong><a class="nav-link active px-md-5" aria-current="page" href="./index.php">Home</a></strong>
             </li>
             <li class="nav-item px-md-3"><a class="nav-link" href="#!">Admin</a></li>
-            <li class="nav-item px-md-3"><a class="nav-link" href="#!">Profile</a></li>
+            <li class="nav-item px-md-3"><a class="nav-link" href="./profile.php">Profile</a></li>
             <li class="nav-item px-md-3">
               <a class="nav-link" href="./signup.php"
                 ><svg
