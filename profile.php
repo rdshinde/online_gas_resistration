@@ -235,9 +235,9 @@ include_once "public/base.php"
           <table class="table table-hover p-3">
             <thead>
               <tr>
-                <th scope="col">Sr.No.</th>
-                <th scope="col">Booking ID</th>
-                <th scope="col">Date</th>
+                <th scope="col">Sr.No.</th> 
+                <th scope="col">Booking ID</th> 
+                <th scope="col">Date</th> 
                 <th scope="col">Status</th>
                 <th scope="col">Price</th>
               </tr>
