@@ -85,7 +85,7 @@ include_once "public/base.php"
             </div>
             <h2 class="fs-4 fw-bold">Complaints</h2>
             <h3 class="mb-0">
-              0
+              01
             </h3>
             <button class="btn btn-sm btn-primary m-2">More Info</button>
           </div>
@@ -108,9 +108,9 @@ include_once "public/base.php"
             >
               <i class="bi bi-patch-check"></i>
             </div>
-            <h2 class="fs-4 fw-bold">Bookings</h2>
+            <h2 class="fs-4 fw-bold">Total Bookings</h2>
             <h3 class="mb-0">
-              13
+              30
             </h3>
             <button class="btn btn-sm btn-primary m-2">More Info</button>
           </div>
@@ -119,6 +119,121 @@ include_once "public/base.php"
     </div>
   </div>
 </section>
+
+<section class="more-info">
+
+
+</section>
+<!-- Registered Customers -->
+<div class="container px-lg-2 my-5">
+  <div class="p-1 p-lg-2 rounded-3">
+    <h1 class="display-5 text-center">Registered Customers</h1>
+    <div class="m-1 m-lg-1">
+      <section>
+        <div
+          class="
+            container
+            table-responsive
+            shadow
+            p-3
+            rounded
+            border
+            col-lg-6 col-xxl-12 col-centered
+            text-center
+          "
+        >
+          <table class="table table-hover p-3">
+            <thead>
+              <tr>
+                <th scope="col">Sr.No.</th> 
+                <th scope="col">Consumer ID</th> 
+                <th scope="col">Customer Name</th> 
+                <th scope="col">Mobile No.</th> 
+                <th scope="col">Email</th> 
+                <th scope="col">Address</th> 
+                <th scope="col">Total Bookings</th> 
+                <th scope="col">Status</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>01</th>
+                <td>1001</td>
+                <td>Abhay Pardeshi</td>
+                <td>8999401355</td>
+                <td>1002</td>
+                <td>31/09/2021</td>
+                <td>Delivered</td>
+                <td>&#8377;990</td>
+                <td><button class="btn btn-sm btn-info">View Complaints</button></td>
+                <td><span><button class="btn btn-sm btn-danger">Remove Customer</button></span></td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Complaints -->
+<div class="container px-lg-2 my-5">
+  <div class="p-1 p-lg-2 rounded-3">
+    <h1 class="display-5 text-center">Complaints</h1>
+    <div class="m-1 m-lg-1">
+      <section>
+        <div
+          class="
+            container
+            table-responsive
+            shadow
+            p-3
+            rounded
+            border
+            col-lg-6 col-xxl-12 col-centered
+            text-center
+          "
+        >
+          <table class="table table-hover p-3">
+            <thead>
+              <tr>
+                <th scope="col">Sr.No.</th> 
+                <th scope="col">Consumer ID</th> 
+                <th scope="col">Customer Name</th> 
+                <th scope="col">Mobile No.</th> 
+                <th scope="col">Booking ID</th> 
+                <th scope="col">Date</th> 
+                <th scope="col">Status</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>01</th>
+                <td>1001</td>
+                <td>Abhay Pardeshi</td>
+                <td>8999401355</td>
+                <td>1002</td>
+                <td>31/09/2021</td>
+                <td>Delivered</td>
+                <td>&#8377;990</td>
+                <td><span><button class="btn btn-sm btn-secondary">View Complaint</button></span></td>
+                <td><button class="btn btn-sm btn-warning">Message</button></td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+
 
 <?php
 include_once "public/footer.php"
