@@ -120,6 +120,10 @@ include_once "public/base.php"
   </div>
 </section>
 
+<section class="more-info">
+
+
+</section>
 <!-- Registered Customers -->
 <div class="container px-lg-2 my-5">
   <div class="p-1 p-lg-2 rounded-3">

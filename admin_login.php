@@ -15,34 +15,25 @@ include_once "public/base.php"
                 <b>Please fill all necessary inputs.</b>
               </div>';
             }
-            else if($_GET['err'] == "wrongLogin"){
-              echo '<div class="alert alert-danger" role="alert">
-                <b>Invalid Admin ID.</b>
-              </div>';
-            }
             else if($_GET['err'] == "wrongPassword"){
               echo '<div class="alert alert-danger" role="alert">
                 <b>Passwords should match.</b>
               </div>';
             }
-            else if($_GET['err'] == "none"){
-              echo '<div class="alert alert-success" role="alert">
-                <b>Account created successfully! Please Login.</b>
-              </div>';
-            }
+            
           }
         ?>
-          <form class="form-group" action="includes/login.inc.php" method="post">
+          <form class="form-group" action="includes/admin_login.inc.php" method="post">
             <form>
               <div class="mb-3">
-                <label for="AdminID" class="form-label"
+                <label for="admin-email" class="form-label"
                   >Admin ID</label
                 >
                 <input
-                  type="text"
-                  name="AdminID-login"
+                  type="email"
+                  name="admin-email"
                   class="form-control"
-                  id="ADMID"
+                  id="admin-email"
                  
                 />
                 
@@ -51,7 +42,7 @@ include_once "public/base.php"
                 <label for="password" class="form-label"
                   >Password</label
                 >
-                <input type="password" name="password-login" id="password" class="form-control" aria-describedby="passwordHelpBlock">
+                <input type="password" name="admin-password" id="password" class="form-control" aria-describedby="passwordHelpBlock">
               </div>
               
               <div class="mb-3 form-check">
@@ -66,7 +57,7 @@ include_once "public/base.php"
                 >
               </div>
               <div class="d-flex w-100 align-items-center justify-content-center">
-              <button type="submit" name="submit-login" class="btn btn-info">Login</button></div>
+              <button type="submit" name="submit-admin-login" class="btn btn-info">Login</button></div>
             
           </form>
         
