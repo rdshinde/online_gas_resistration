@@ -23,6 +23,9 @@
     />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="./css/style.css" rel="stylesheet" />
+    <!-- Fontawesome CDN -->
+    <script src="https://kit.fontawesome.com/fde0352739.js" crossorigin="anonymous"></script>
+
   </head>
   <body>
     <!-- Responsive navbar-->

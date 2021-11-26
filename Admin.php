@@ -4,132 +4,128 @@ include_once "public/base.php"
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <!-- Bootstrap CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-  <!-- Bootstrap icons-->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-    rel="stylesheet"
-  />
-  <!-- Core theme CSS (includes Bootstrap)-->
-  <link href="./css/style.css" rel="stylesheet" />
-</head>
-<body>
 
-<section>
-  <div class="row gx-lg-5">
-    <div class="col-lg-6 col-xxl-4 mb-5">
-      <div class="card bg-light border-0 h-100">
-        <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-          <div
-            class="
-              feature
-              bg-primary bg-gradient
-              text-white
-              rounded-3
-              mb-4
-              mt-n4
-            "
-          >
-            <i class="bi bi-collection"></i>
+<section class="py-5 my-5">
+  <div class="container px-lg-5 ">
+    <!-- Page Features-->
+    <div class="row gx-lg-5">
+      <div class="col-lg-6 col-xxl-4 mb-5">
+        <div class="card bg-light border-0 h-100">
+          <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+            <div
+              class="
+                feature
+                bg-primary bg-gradient
+                text-white
+                rounded-3
+                mb-4
+                mt-n4
+              "
+            >
+            <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-person-plus-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"
+                  />
+                </svg>
+            </div>
+            <h2 class="fs-4 fw-bold">Active Customers</h2>
+            <h3 class="mb-0">
+              10
+            </h3>
+            <button class="btn btn-sm btn-primary m-2">More Info</button>
           </div>
-          <h2 class="fs-4 fw-bold">Total Gas Connections</h2>
-          <p>
-            0
-          </p>
-          <a href="#">View Details</a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-xxl-4 mb-5">
+        <div class="card bg-light border-0 h-100">
+          <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+            <div
+              class="
+                feature
+                bg-primary bg-gradient
+                text-white
+                rounded-3
+                mb-4
+                mt-n4
+              "
+            >
+            <i class="bi bi-patch-check"></i>
+            </div>
+            <h2 class="fs-4 fw-bold">Bookings Delivered</h2>
+            <h3 class="mb-0">15</h3>
+            <button class="btn btn-sm btn-primary m-2">More Info</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-xxl-4 mb-5">
+        <div class="card bg-light border-0 h-100">
+          <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+            <div
+              class="
+                feature
+                bg-primary bg-gradient
+                text-white
+                rounded-3
+                mb-4
+                mt-n4
+              "
+            >
+            <i class="bi bi-chat-square-dots-fill"></i>
+            </div>
+            <h2 class="fs-4 fw-bold">Complaints</h2>
+            <h3 class="mb-0">
+              0
+            </h3>
+            <button class="btn btn-sm btn-primary m-2">More Info</button>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="col-lg-6 col-xxl-4 mb-5 m-auto">
+        <div class="card bg-light border-0 h-100">
+          <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+            <div
+              class="
+                feature
+                bg-primary bg-gradient
+                text-white
+                rounded-3
+                mb-4
+                mt-n4
+              "
+            >
+              <i class="bi bi-patch-check"></i>
+            </div>
+            <h2 class="fs-4 fw-bold">Bookings</h2>
+            <h3 class="mb-0">
+              13
+            </h3>
+            <button class="btn btn-sm btn-primary m-2">More Info</button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-6 col-xxl-4 mb-5">
-      <div class="card bg-light border-0 h-100">
-        <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-          <div
-            class="
-              feature
-              bg-primary bg-gradient
-              text-white
-              rounded-3
-              mb-4
-              mt-n4
-            "
-          >
-            <i class="bi bi-cloud-download"></i>
-          </div>
-          <h2 class="fs-4 fw-bold">Total Gas Bookings</h2>
-          <p>0</p>
-          <a href="#">View Details</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6 col-xxl-4 mb-5">
-      <div class="card bg-light border-0 h-100">
-        <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-          <div
-            class="
-              feature
-              bg-primary bg-gradient
-              text-white
-              rounded-3
-              mb-4
-              mt-n4
-            "
-          >
-            <i class="bi bi-card-heading"></i>
-          </div>
-          <h2 class="fs-4 fw-bold">Total Delivered Cylinder</h2>
-          <p>
-            0
-          </p>
-          <a href="#">View Details</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6 col-xxl-4 mb-5">
-      <div class="card bg-light border-0 h-100">
-        <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-          <div
-            class="
-              feature
-              bg-primary bg-gradient
-              text-white
-              rounded-3
-              mb-4
-              mt-n4
-            "
-          >
-            <i class="bi bi-bootstrap"></i>
-          </div>
-          <h2 class="fs-4 fw-bold">Total Complaints</h2>
-          <p>
-            0
-          </p>
-          <a href="#">View Details</a>
-        </div>
-      </div>
-    </div>
-   
   </div>
-</div>
-     
 </section>
 
+<?php
+include_once "public/footer.php"
+?>
 
 
 </body>
 </html>
 
-<?php
-include_once "public/footer.php"
-?>
 

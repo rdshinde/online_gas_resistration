@@ -34,13 +34,8 @@
         <!--Grid column-->
   
         <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-4 pb-1">Search something</h5>
-  
-          <div class="form-outline form-white mb-4">
-            <input type="text" id="formControlLg" class="form-control form-control-lg" />
-            <label class="form-label" for="formControlLg">Search</label>
-          </div>
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0 mt-5">
+         
   
           <ul class="fa-ul" style="margin-left: 1.65em;">
             <li class="mb-3">
