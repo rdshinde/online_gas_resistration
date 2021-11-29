@@ -141,80 +141,84 @@ include_once "public/base.php"
     </div>
   </div>
 </section>
-<div class="container px-lg-5 my-5">
-  <div class="p-4 p-lg-5 bg-light rounded-3">
-    <h1 class="display-3 text-center">Welcome, Rohit Sharma</h1>
-    <div class="m-4 m-lg-5">
-      <section class="booking">
-        <h2 class="display-6 text-center pb-3">Book Your Cylinder Now!</h2>
+<?php
+if(isset($_SESSION["consumerID"])){
+      echo '<div class="container px-lg-5 my-5">
+      <div class="p-4 p-lg-5 bg-light rounded-3">
+        <h1 class="display-3 text-center ">Welcome, '.$_SESSION["name"].'</h1>
         <div class="m-4 m-lg-5">
-          <form class="row g-3" method="POST" action="profile.php">
-            <div class="col-md-3">
-              <label for="inputPassword4" class="form-label"
-                >Consumer ID*</label
-              >
-              <input type="text" class="form-control" id="inputPassword4" />
+          <section class="booking">
+            <h2 class="display-6 text-center pb-3">Book Your Cylinder Now!</h2>
+            <div class="m-4 m-lg-5">
+              <form class="row g-3" method="POST" action="includes/booking.inc.php">
+              <div class="col-md-3">
+                  <label for="consumer-id" class="form-label"
+                    >Consumer ID*</label
+                  >
+                  <input type="text" class="form-control" value="'.$_SESSION["consumerID"].'" disabled id="consumer-id" />
+                </div>
+                <div class="col-md-3">
+                  <label for="mobile-no" class="form-label"
+                    >Mobile Number*</label
+                  >
+                  <input type="text" value="'.$_SESSION["mobileNo"].'" class="form-control" id="mobile-no" />
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email*</label>
+                  <input type="email" value="'.$_SESSION["email"].'" class="form-control" id="email" />
+                </div>
+                
+                <div class="col-12">
+                  <label for="inputAddress" class="form-label">Address*</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputAddress"
+                    value="'.$_SESSION["address"].'"
+                  />
+                </div>
+    
+                <div class="col-md-6">
+                  <label for="inputCity" class="form-label">City</label>
+                  <input type="text" value="'.$_SESSION["city"].'" class="form-control" id="inputCity" />
+                </div>
+                <div class="col-md-4">
+                  <label for="inputState" class="form-label">State</label>
+                  <select id="inputState" class="form-select">
+                    <option selected>Choose...</option>
+                    <option selected>Maharashtra</option>
+                  </select>
+                </div>
+                <div class="col-md-2">
+                  <label for="inputZip" class="form-label">Pincode*</label>
+                  <input type="text" value="'.$_SESSION["pincode"].'" class="form-control" id="inputZip" />
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="gridCheck"
+                      required
+                    />
+                    <label class="form-check-label" for="gridCheck">
+                      Accept all <a href="#">terms and conditions.</a>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary">
+                    Make Booking
+                  </button>
+                </div>
+              </form>
             </div>
-            <div class="col-md-3">
-              <label for="inputPassword4" class="form-label"
-                >Mobile Number*</label
-              >
-              <input type="text" class="form-control" id="inputPassword4" />
-            </div>
-            <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">Email*</label>
-              <input type="email" class="form-control" id="inputEmail4" />
-            </div>
-
-            <div class="col-12">
-              <label for="inputAddress" class="form-label">Address*</label>
-              <input
-                type="text"
-                class="form-control"
-                id="inputAddress"
-                placeholder="Shree Apartments, MG Road, Shivajinagar, Pune."
-              />
-            </div>
-
-            <div class="col-md-6">
-              <label for="inputCity" class="form-label">City</label>
-              <input type="text" class="form-control" id="inputCity" />
-            </div>
-            <div class="col-md-4">
-              <label for="inputState" class="form-label">State</label>
-              <select id="inputState" class="form-select">
-                <option selected>Choose...</option>
-                <option>Maharashtra</option>
-              </select>
-            </div>
-            <div class="col-md-2">
-              <label for="inputZip" class="form-label">Pincode*</label>
-              <input type="text" class="form-control" id="inputZip" />
-            </div>
-            <div class="col-12">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="gridCheck"
-                  required
-                />
-                <label class="form-check-label" for="gridCheck">
-                  Accept all <a href="#">terms and conditions.</a>
-                </label>
-              </div>
-            </div>
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary">
-                Make Booking
-              </button>
-            </div>
-          </form>
+          </section>
         </div>
-      </section>
-    </div>
-  </div>
-</div>
+      </div>
+    </div>';
+    }
+?>
 <div class="container px-lg-2 my-5">
   <div class="p-1 p-lg-2 rounded-3">
     <h1 class="display-5 text-center">Your Booking's History</h1>
