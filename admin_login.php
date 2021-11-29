@@ -23,7 +23,7 @@ include_once "public/base.php"
             
           }
         ?>
-          <form class="form-group" action="includes/admin_login.inc.php" method="post">
+          <form class="form-group" action="includes/admin_login.inc.php" method="POST">
             <form>
               <div class="mb-3">
                 <label for="admin-email" class="form-label"

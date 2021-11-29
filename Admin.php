@@ -2,9 +2,6 @@
 include_once "public/base.php"
 ?>
 
-
-
-
 <section class="py-5 my-5">
   <div class="container px-lg-5 ">
     <!-- Page Features-->
@@ -120,10 +117,70 @@ include_once "public/base.php"
   </div>
 </section>
 
+
 <section class="more-info">
 
 
 </section>
+
+<!-- BOOKINGS -->
+<div class="bookings-class container px-lg-2 my-5">
+  <div class="p-1 p-lg-2 rounded-3">
+    <h1 class="display-5 text-center">Bookings</h1>
+    <div class="m-1 m-lg-1">
+      <section>
+        <div
+          class="
+            container
+            table-responsive
+            shadow
+            p-3
+            rounded
+            border
+            col-lg-6 col-xxl-12 col-centered
+            text-center
+          "
+        >
+          <table class="table table-hover p-3">
+            <thead>
+              <tr>
+                <th scope="col">Sr.No.</th> 
+                <th scope="col">Consumer ID</th> 
+                <th scope="col">Booking ID</th> 
+                <th scope="col">Customer Name</th> 
+                <th scope="col">Mobile No.</th> 
+                <th scope="col">Address</th> 
+                <th scope="col">Status</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>01</th>
+                <td>1001</td>
+                <td>1010</td>
+                <td>Abhay Pardeshi</td>
+                <td>8999401355</td>
+                <td>MG Road, Pune</td>
+                <td><select class="form-select form-select-sm" aria-label="Default select example">
+                      <option value="pending">Pending</option>
+                      <option value="delivered">Delivered</option>
+                    </select>
+                </td>
+                <td>&#8377;990</td>
+                <td><span><button class="btn btn-sm btn-danger">Remove Booking</button></span></td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+
+
 <!-- Registered Customers -->
 <div class="container px-lg-2 my-5">
   <div class="p-1 p-lg-2 rounded-3">
