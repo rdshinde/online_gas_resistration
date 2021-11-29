@@ -16,7 +16,7 @@ include_once "public/base.php"
                   <label for="consumer-id" class="form-label"
                     >Consumer ID*</label
                   >
-                  <input type="text" class="form-control" value="'.$_SESSION["consumerID"].'" disabled id="consumer-id" />
+                  <input type="text" class="form-control" name="consumer-id" value="'.$_SESSION["consumerID"].'" disabled id="consumer-id" />
                 </div>
                 <div class="col-md-3">
                   <label for="mobile-no" class="form-label"
@@ -68,7 +68,7 @@ include_once "public/base.php"
                   </div>
                 </div>
                 <div class="col-12">
-                  <button type="submit" class="btn btn-primary">
+                  <button type="submit" name="make-booking" class="btn btn-primary">
                     Make Booking
                   </button>
                 </div>
