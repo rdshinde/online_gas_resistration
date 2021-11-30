@@ -1,7 +1,7 @@
 <?php
 
     function makeBooking($conn, $consumerId){
-        $sql = "INSERT INTO Booking (consumer_id, mtimestamp) VALUES (?, ?)";
+        $sql = "INSERT INTO Booking (consumer_Id, mtimestamp) VALUES (?, ?)";
 
         $stmt = mysqli_stmt_init($conn);
 
