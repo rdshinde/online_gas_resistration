@@ -1,7 +1,7 @@
 <?php
 
     function makeBooking($conn, $consumerId){
-        $sql = "INSERT INTO Booking (consumer_id) VALUES (?)";
+        $sql = "INSERT INTO Booking (consumer_id, mtimestamp) VALUES (?, ?)";
 
         $stmt = mysqli_stmt_init($conn);
 
@@ -10,8 +10,8 @@
             exit();
         }
         else{
-            // $stimestamp = date("d-m-Y H:i:s");
-            mysqli_stmt_bind_param($stmt, "s", $consumerId);
+            $mtimestamp = date("Y-m-d H:i:s");
+            mysqli_stmt_bind_param($stmt, "ss", $consumerId, $mtimestamp);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
             header("location: ../profile.php?err=none");

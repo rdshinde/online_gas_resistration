@@ -4,7 +4,7 @@
 
 if(isset($_POST["make-booking"])){
     
-    $consumerId = $_POST["consumer-id"];
+    $consumerId = (int)$_POST["consumer-id"];
     makeBooking($conn, $consumerId);
     mysqli_close($conn);
 
