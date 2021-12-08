@@ -1,5 +1,6 @@
 <?php
-include_once "public/base.php"
+include_once "public/base.php";
+include_once "includes/dbh.inc.php";
 ?>
 
 <!-- Page Content-->
@@ -263,35 +264,59 @@ include_once "public/base.php"
             </thead>
             <tbody>
               <tr>
-
-                
-
-                <th>01</th>
-                <td>1001</td>
-                <td>31/09/2021</td>
-                <td>Delivered</td>
-                <td>&#8377;990</td>
-                <td><span><button class="btn btn-sm btn-danger">Make Complaint</button></span></td>
-                <td><button class="btn btn-sm btn-secondary">Download Bill</button></td>
-              </tr>
-              <tr>
-                <th>03</th>
-                <td>1002</td>
-                <td>31/10/2021</td>
-                <td>Delivered</td>
-                <td>&#8377;990</td>
-                <td><span><button class="btn btn-sm btn-danger">Make Complaint</button></span></td>
-                <td><button class="btn btn-sm btn-secondary">Download Bill</button></td>
-              </tr>
-              <tr>
-                <th>03</th>
-                <td>1003</td>
-                <td>31/11/2021</td>
-                <td>Delivered</td>
-                <td>&#8377;990</td>
-                <td><span><button class="btn btn-sm btn-danger">Make Complaint</button></span></td>
-                <td><button class="btn btn-sm btn-secondary">Download Bill</button></td>
-              </tr>
+              <?php
+                    $id = $_SESSION["consumerID"];
+                    
+                    $sql = "SELECT * FROM Booking WHERE consumer_id=$id";
+                    $results = mysqli_query($conn, $sql);
+                    $resultCheck = mysqli_num_rows($results);
+                    if($resultCheck >0){
+                      $sr = 1;
+                      while($row = mysqli_fetch_assoc($results)){
+                        $booking_id = $row["booking_id"];
+                        $status = $row["status_field"];
+                        $date = substr($row["mtimestamp"],0,10);
+                        echo '<th>'.$sr.'</th>
+                                <td>'.$booking_id.'</td>
+                                <td>'.$date.'</td>
+                                <td>'.$status.'</td>
+                                <td>&#8377;990</td>
+                                <td><span><button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Make Complaint</button></span></td>
+                                <td><button class="btn btn-sm btn-secondary">Download Bill</button></td>
+                                <!-- Modal -->
+                                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title text-danger" id="staticBackdropLabel">Make Complaint</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <!-- Complaint Form in Modal -->
+                                        <form method="POST" action="includes/complaint.inc.php">
+                                            <div class="mb-3 text-start">
+                                              <label for="consumer-id" class="form-label">Consumer ID</label>
+                                              <input type="number" name="consumer-id" class="form-control" value="'.$_SESSION["consumerID"].'" readonly id="consumer-id">
+                                            </div>
+                                            <div class="mb-3 text-start">
+                                              <label for="booking-id"  class="form-label">Booking ID</label>
+                                              <input type="number" name="booking-id" class="form-control" value="'.$booking_id.'" readonly id="booking-id">
+                                            </div>
+                                            <div class="form-floating text-start mt-3 mb-3">
+                                              <textarea class="form-control" name="complaint"  id="complaint-details"></textarea>
+                                              <label for="complaint-details">Complaint Details</label>
+                                            </div>
+                                            <button type="submit" name="make-complaint" class="btn btn-danger">Register Complaint</button>
+                                          </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </tr>';
+                        $sr = $sr+1;  
+                      }
+                    }
+                ?>
             </tbody>
           </table>
         </div>
@@ -299,6 +324,7 @@ include_once "public/base.php"
     </div>
   </div>
 </div>
+
 <?php
 include_once "public/footer.php"
 ?>
