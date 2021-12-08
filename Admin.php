@@ -1,5 +1,7 @@
 <?php
-include_once "public/base.php"
+include_once "public/base.php";
+include_once "includes/functions.inc.php";
+include_once "includes/dbh.inc.php";
 ?>
 
 <section class="py-5 my-5">
@@ -156,21 +158,41 @@ include_once "public/base.php"
             </thead>
             <tbody>
               <tr>
-                <th>01</th>
-                <td>1001</td>
-                <td>1010</td>
-                <td>Abhay Pardeshi</td>
-                <td>8999401355</td>
-                <td>MG Road, Pune</td>
-                <td><select class="form-select form-select-sm" aria-label="Default select example">
-                      <option value="pending">Pending</option>
-                      <option value="delivered">Delivered</option>
-                    </select>
-                </td>
-                <td>&#8377;990</td>
-                <td><span><button class="btn btn-sm btn-danger">Remove Booking</button></span></td>
-              </tr>
-              
+                <?php
+                
+                  $sql = "SELECT * FROM Booking";
+                  $results = mysqli_query($conn, $sql);
+                  $resultCheck = mysqli_num_rows($results);
+                  if($resultCheck >0){
+                    $sr = 1;
+                    while($row = mysqli_fetch_assoc($results)){
+                      $id = $row["consumer_id"];
+                      $userInfo = userData($conn , $id);
+                      $bookingId = $row["booking_id"];
+                      $name = $userInfo["consumer_name"];
+                      $mobileNo = $userInfo["consumer_mob"];
+                      $address = $userInfo["consumer_address"];
+                      $city = $userInfo["consumer_city"];
+                      $pincode = $userInfo["consumer_pincode"];
+                      echo '<th>'.$sr.'</th>
+                      <td>'.$id.'</td>
+                      <td>'.$bookingId.'</td>
+                      <td>'.$name.'</td>
+                      <td>'.$mobileNo.'</td>
+                      <td>'.$address.' '.$city.'-'.$pincode.'</td>
+                      <td><select class="form-select form-select-sm">
+                            <option value="pending">Pending</option>
+                            <option value="delivered">Delivered</option>
+                          </select>
+                      </td>
+                      <td>&#8377;990</td>
+                      <td><span><button class="btn btn-sm btn-danger">Remove Booking</button></span></td>
+                    </tr>';
+                    $sr = $sr + 1;
+                    }
+                  }
+                
+                ?>
             </tbody>
           </table>
         </div>

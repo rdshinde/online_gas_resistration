@@ -276,19 +276,22 @@ include_once "includes/dbh.inc.php";
                         $booking_id = $row["booking_id"];
                         $status = $row["status_field"];
                         $date = substr($row["mtimestamp"],0,10);
-                        echo '<th>'.$sr.'</th>
+                        echo '<tr>
+                                <th>'.$sr.'</th>
                                 <td>'.$booking_id.'</td>
                                 <td>'.$date.'</td>
                                 <td>'.$status.'</td>
                                 <td>&#8377;990</td>
-                                <td><span><button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Make Complaint</button></span></td>
+                                <td><span><button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Make Complaint</button></span></td>
                                 <td><button class="btn btn-sm btn-secondary">Download Bill</button></td>
+                              </tr>
+                             
                                 <!-- Modal -->
-                                  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                  <div class="modal fade" id="exampleModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                       <div class="modal-content">
                                         <div class="modal-header">
-                                          <h5 class="modal-title text-danger" id="staticBackdropLabel">Make Complaint</h5>
+                                          <h5 class="modal-title text-danger" id="exampleModal">Make Complaint</h5>
                                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -300,10 +303,11 @@ include_once "includes/dbh.inc.php";
                                             </div>
                                             <div class="mb-3 text-start">
                                               <label for="booking-id"  class="form-label">Booking ID</label>
-                                              <input type="number" name="booking-id" class="form-control" value="'.$booking_id.'" readonly id="booking-id">
+                                              <input type="text" name="booking-id" class="form-control" placeholder="Enter Booking ID"  value="'.$booking_id.'" id="booking-id">
                                             </div>
                                             <div class="form-floating text-start mt-3 mb-3">
-                                              <textarea class="form-control" name="complaint"  id="complaint-details"></textarea>
+                                              
+                                              <textarea class="form-control" name="complaint" id="complaint-details"></textarea>
                                               <label for="complaint-details">Complaint Details</label>
                                             </div>
                                             <button type="submit" name="make-complaint" class="btn btn-danger">Register Complaint</button>
@@ -317,8 +321,8 @@ include_once "includes/dbh.inc.php";
                       }
                     }
                 ?>
-            </tbody>
-          </table>
+             </tbody>
+        </table>
         </div>
       </section>
     </div>
