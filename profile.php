@@ -3,222 +3,237 @@ include_once "public/base.php"
 ?>
 
 <!-- Page Content-->
+<!-- Message Section -->
+<section>
+  <div class="col-md-12 mt-1 text-center">
+        <?php
+            if(isset($_GET['err'])){
+              if($_GET['err'] == "none"){
+                  echo '<div class="alert alert-success" role="alert">
+                  <b>Booking Made Successfully!</b>
+                </div>';
+              }
+            }
+          ?>
+  </div>
+</section>
+<!-- Profile Edit Section and Complaint messages section. -->
 <section class="pt-4 my-5">
   <div class="container px-lg-5">
     <!-- Page Features-->
     <div class="row gx-lg-5">
-      <div class="col-lg-6 col-xxl-4 mb-5">
-        <div class="card bg-light border-0 h-100">
-          <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-            <div
-              class="
-                feature
-                bg-primary bg-gradient
-                text-white
-                rounded-3
-                mb-4
-                mt-n4
-              "
-            >
-              <i class="bi bi-collection"></i>
-            </div>
-            <h2 class="fs-4 fw-bold">Fresh new layout</h2>
-            <p class="mb-0">
-              With Bootstrap 5, we've created a fresh new layout for this
-              template!
-            </p>
+      
+      <div class="col-lg-9 col-xxl-8 mb-5">
+        <div class="card bg-light border-0 h-100 rounded-3 shadow">
+          <div class="card-body  p-4 p-lg-5 pt-0 pt-lg-0">
+          <?php
+              if(isset($_SESSION["consumerID"])){
+                    echo '<div class="p-3">
+                    <div class="">
+                      <h1 class="display-3 mb-3 pb-2 text-center ">Your Profile</h1>
+                      <div class="">
+                        <section class="booking">
+                          
+                          <div class="">
+                            <form class="row g-3" method="POST" action="includes/booking.inc.php">
+                            <div class="col-md-6">
+                                <label for="consumer-id" class="form-label"
+                                  >Consumer ID*</label
+                                >
+                                <input type="text" class="form-control" value="'.$_SESSION["consumerID"].'" readonly id="consumer-id" />
+                              </div>
+                              <div class="col-md-6">
+                                <label for="mobile-no" class="form-label"
+                                  >Mobile Number*</label
+                                >
+                                <input type="text" value="'.$_SESSION["mobileNo"].'" class="form-control" id="mobile-no" />
+                              </div>
+                              <div class="col-md-6">
+                                <label for="email" class="form-label">Name*</label>
+                                <input type="email" value="'.$_SESSION["name"].'" class="form-control" id="email" />
+                              </div>
+                              <div class="col-md-6">
+                                <label for="email" class="form-label">Email*</label>
+                                <input type="email" value="'.$_SESSION["email"].'" class="form-control" id="email" />
+                              </div>
+                              
+                              <div class="col-md-12">
+                                <label for="inputAddress" class="form-label">Address*</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="inputAddress"
+                                  value="'.$_SESSION["address"].'"
+                                />
+                              </div>
+                  
+                              <div class="col-md-7">
+                                <label for="inputCity" class="form-label">City</label>
+                                <input type="text" value="'.$_SESSION["city"].'" class="form-control" id="inputCity" />
+                              </div>
+                              <div class="col-md-5">
+                                <label for="inputZip" class="form-label">Pincode*</label>
+                                <input type="text" value="'.$_SESSION["pincode"].'" class="form-control" id="inputZip" />
+                              </div>
+                              <div class="col-12">
+                                
+                              <div class="col-12">
+                                <button type="submit" name="edit-profile" class="btn btn-primary">
+                                Save Changes
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>';
+                  }
+              ?>
           </div>
         </div>
       </div>
-      <div class="col-lg-6 col-xxl-4 mb-5">
-        <div class="card bg-light border-0 h-100">
-          <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-            <div
-              class="
-                feature
-                bg-primary bg-gradient
-                text-white
-                rounded-3
-                mb-4
-                mt-n4
-              "
-            >
-              <i class="bi bi-cloud-download"></i>
-            </div>
-            <h2 class="fs-4 fw-bold">Free to download</h2>
-            <p class="mb-0">Now you can download your bills anytime.</p>
+      <aside class="col-lg-6 col-xxl-4 mb-5 ">
+        <div class="card bg-light shadow rounded-3 border-0 h-100 text-center p-3">
+          <div class="text-center p-1">
+            <div><h2 class="display-5">Messages</h2></div>
+          </div>
+          <div class="msg bg-dark text-light rounded-3 m-2">
+                  <p class="mb-0 p-2">Acoount Created Successfully!</p>
           </div>
         </div>
+      </aside>
+
+      <div class="col-lg-12 text-center p-5">
+            <div><h2 class="display-3">Statistics</h2></div>
       </div>
+      <section class="stats d-flex justify-content-evenly mt-md-5 flex-wrap">
       <div class="col-lg-6 col-xxl-4 mb-5">
-        <div class="card bg-light border-0 h-100">
-          <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-            <div
-              class="
-                feature
-                bg-primary bg-gradient
-                text-white
-                rounded-3
-                mb-4
-                mt-n4
-              "
-            >
-              <i class="bi bi-card-heading"></i>
+          <div class="card bg-light border-0 h-100">
+            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+              <div
+                class="
+                  feature
+                  bg-primary bg-gradient
+                  text-white
+                  rounded-3
+                  mb-4
+                  mt-n4
+                "
+              >
+                <i class="bi bi-code"></i>
+              </div>
+              <h2 class="fs-4 fw-bold">Total Bookings.</h2>
+              <h2 class="mb-0">
+                    10
+              </h2>
             </div>
-            <h2 class="fs-4 fw-bold"></h2>
-            <p class="mb-0">
-              The heroic part of this template is the jumbotron hero header!
-            </p>
           </div>
         </div>
-      </div>
-      <div class="col-lg-6 col-xxl-4 mb-5">
-        <div class="card bg-light border-0 h-100">
-          <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-            <div
-              class="
-                feature
-                bg-primary bg-gradient
-                text-white
-                rounded-3
-                mb-4
-                mt-n4
-              "
-            >
-              <i class="bi bi-bootstrap"></i>
+        <div class="col-lg-6 col-xxl-4 mb-5">
+          <div class="card bg-light border-0 h-100">
+            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+              <div
+                class="
+                  feature
+                  bg-primary bg-gradient
+                  text-white
+                  rounded-3
+                  mb-4
+                  mt-n4
+                "
+              >
+                <i class="bi bi-code"></i>
+              </div>
+              <h2 class="fs-4 fw-bold">Bookings Delivered Successfully.</h2>
+              <h2 class="mb-0">
+                    09
+              </h2>
             </div>
-            <h2 class="fs-4 fw-bold">Quick Bookings and Delivery</h2>
-            <p class="mb-0">
-              We are the fastest service provider in Maharashtra!
-            </p>
           </div>
         </div>
-      </div>
-      <div class="col-lg-6 col-xxl-4 mb-5">
-        <div class="card bg-light border-0 h-100">
-          <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-            <div
-              class="
-                feature
-                bg-primary bg-gradient
-                text-white
-                rounded-3
-                mb-4
-                mt-n4
-              "
-            >
-              <i class="bi bi-code"></i>
-            </div>
-            <h2 class="fs-4 fw-bold">Simple online interface</h2>
-            <p class="mb-0">
-              Simple to use interface of online registration portal.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 col-xxl-4 mb-5">
-        <div class="card bg-light border-0 h-100">
-          <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-            <div
-              class="
-                feature
-                bg-primary bg-gradient
-                text-white
-                rounded-3
-                mb-4
-                mt-n4
-              "
-            >
-              <i class="bi bi-patch-check"></i>
-            </div>
-            <h2 class="fs-4 fw-bold">A name you trust</h2>
-            <p class="mb-0">
-              Foudation of our growth is faith of 50,000+ customers.
-            </p>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   </div>
 </section>
-<?php
-if(isset($_SESSION["consumerID"])){
-      echo '<div class="container px-lg-5 my-5">
-      <div class="p-4 p-lg-5 bg-light rounded-3">
-        <h1 class="display-3 text-center ">Welcome, '.$_SESSION["name"].'</h1>
-        <div class="m-4 m-lg-5">
-          <section class="booking">
-            <h2 class="display-6 text-center pb-3">Book Your Cylinder Now!</h2>
-            <div class="m-4 m-lg-5">
-              <form class="row g-3" method="POST" action="includes/booking.inc.php">
-              <div class="col-md-3">
-                  <label for="consumer-id" class="form-label"
-                    >Consumer ID*</label
-                  >
-                  <input type="text" class="form-control" value="'.$_SESSION["consumerID"].'" disabled id="consumer-id" />
-                </div>
-                <div class="col-md-3">
-                  <label for="mobile-no" class="form-label"
-                    >Mobile Number*</label
-                  >
-                  <input type="text" value="'.$_SESSION["mobileNo"].'" class="form-control" id="mobile-no" />
-                </div>
-                <div class="col-md-6">
-                  <label for="email" class="form-label">Email*</label>
-                  <input type="email" value="'.$_SESSION["email"].'" class="form-control" id="email" />
-                </div>
-                
-                <div class="col-12">
-                  <label for="inputAddress" class="form-label">Address*</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputAddress"
-                    value="'.$_SESSION["address"].'"
-                  />
-                </div>
-    
-                <div class="col-md-6">
-                  <label for="inputCity" class="form-label">City</label>
-                  <input type="text" value="'.$_SESSION["city"].'" class="form-control" id="inputCity" />
-                </div>
-                <div class="col-md-4">
-                  <label for="inputState" class="form-label">State</label>
-                  <select id="inputState" class="form-select">
-                    <option selected>Choose...</option>
-                    <option selected>Maharashtra</option>
-                  </select>
-                </div>
-                <div class="col-md-2">
-                  <label for="inputZip" class="form-label">Pincode*</label>
-                  <input type="text" value="'.$_SESSION["pincode"].'" class="form-control" id="inputZip" />
-                </div>
-                <div class="col-12">
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="gridCheck"
-                      required
-                    />
-                    <label class="form-check-label" for="gridCheck">
-                      Accept all <a href="#">terms and conditions.</a>
-                    </label>
+      <?php
+      if(isset($_SESSION["consumerID"])){
+            echo '<div class="container px-lg-5 my-5">
+            <div class=" p-lg-5 bg-light rounded-3 shadow">
+              <h1 class="display-3 text-center ">Welcome, '.$_SESSION["name"].'</h1>
+              <div class="m-4 m-lg-5">
+                <section class="booking">
+                  <h2 class="display-6 text-center pb-3">Book Your Cylinder Now!</h2>
+                  <div class="m-4 m-lg-5">
+                    <form class="row g-3" method="POST" action="includes/booking.inc.php">
+                    <div class="col-md-3">
+                        <label for="consumer-id" class="form-label"
+                          >Consumer ID*</label
+                        >
+                        <input type="text" class="form-control" value="'.$_SESSION["consumerID"].'" readonly id="consumer-id" />
+                      </div>
+                      <div class="col-md-3">
+                        <label for="mobile-no" class="form-label"
+                          >Mobile Number*</label
+                        >
+                        <input type="text" value="'.$_SESSION["mobileNo"].'" class="form-control" id="mobile-no" />
+                      </div>
+                      <div class="col-md-6">
+                        <label for="email" class="form-label">Email*</label>
+                        <input type="email" value="'.$_SESSION["email"].'" class="form-control" id="email" />
+                      </div>
+                      
+                      <div class="col-12">
+                        <label for="inputAddress" class="form-label">Address*</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inputAddress"
+                          value="'.$_SESSION["address"].'"
+                        />
+                      </div>
+          
+                      <div class="col-md-6">
+                        <label for="inputCity" class="form-label">City</label>
+                        <input type="text" value="'.$_SESSION["city"].'" class="form-control" id="inputCity" />
+                      </div>
+                      <div class="col-md-4">
+                        <label for="inputState" class="form-label">State</label>
+                        <select id="inputState" class="form-select">
+                          <option selected>Choose...</option>
+                          <option selected>Maharashtra</option>
+                        </select>
+                      </div>
+                      <div class="col-md-2">
+                        <label for="inputZip" class="form-label">Pincode*</label>
+                        <input type="text" value="'.$_SESSION["pincode"].'" class="form-control" id="inputZip" />
+                      </div>
+                      <div class="col-12">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="gridCheck"
+                            required
+                          />
+                          <label class="form-check-label" for="gridCheck">
+                            Accept all <a href="#">terms and conditions.</a>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <button type="submit" name="make-booking" class="btn btn-primary">
+                          Make Booking
+                        </button>
+                      </div>
+                    </form>
                   </div>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary">
-                    Make Booking
-                  </button>
-                </div>
-              </form>
+                </section>
+              </div>
             </div>
-          </section>
-        </div>
-      </div>
-    </div>';
-    }
-?>
+          </div>';
+          }
+      ?>
 <div class="container px-lg-2 my-5">
   <div class="p-1 p-lg-2 rounded-3">
     <h1 class="display-5 text-center">Your Booking's History</h1>
@@ -248,6 +263,9 @@ if(isset($_SESSION["consumerID"])){
             </thead>
             <tbody>
               <tr>
+
+                
+
                 <th>01</th>
                 <td>1001</td>
                 <td>31/09/2021</td>

@@ -16,7 +16,7 @@ include_once "public/base.php"
                   <label for="consumer-id" class="form-label"
                     >Consumer ID*</label
                   >
-                  <input type="text" class="form-control" name="consumer-id" value="'.$_SESSION["consumerID"].'" disabled id="consumer-id" />
+                  <input type="number" class="form-control" name="consumer-id" value="'.$_SESSION["consumerID"].'" readonly id="consumer-id" />
                 </div>
                 <div class="col-md-3">
                   <label for="mobile-no" class="form-label"
