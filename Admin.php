@@ -17,6 +17,11 @@ include_once "includes/dbh.inc.php";
                   <b>Booking Status Changed Successfully!</b>
                 </div>';
               }
+              else if($_GET['err'] == "not-changed"){
+                  echo '<div class="alert alert-danger" role="alert">
+                  <b>Failed to change booking status!</b>
+                </div>';
+              }
             }
           ?>
   </div>
