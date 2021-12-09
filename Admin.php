@@ -40,9 +40,9 @@ include_once "includes/dbh.inc.php";
             </div>
             <h2 class="fs-4 fw-bold">Active Customers</h2>
             <h3 class="mb-0">
-              10
+              <?php echo totalCustomers($conn) ?>
             </h3>
-            <button class="btn btn-sm btn-primary m-2">More Info</button>
+            <button class="active-customers btn btn-sm btn-primary m-2">More Info</button>
           </div>
         </div>
       </div>
@@ -62,8 +62,8 @@ include_once "includes/dbh.inc.php";
             <i class="bi bi-patch-check"></i>
             </div>
             <h2 class="fs-4 fw-bold">Bookings Delivered</h2>
-            <h3 class="mb-0">15</h3>
-            <button class="btn btn-sm btn-primary m-2">More Info</button>
+            <h3 class="mb-0"><?php echo deliveredBookings($conn) ?></h3>
+            <button class="delivered-bookings btn btn-sm btn-primary m-2">More Info</button>
           </div>
         </div>
       </div>
@@ -84,9 +84,9 @@ include_once "includes/dbh.inc.php";
             </div>
             <h2 class="fs-4 fw-bold">Complaints</h2>
             <h3 class="mb-0">
-              01
+            <?php echo totalComplaints($conn) ?>
             </h3>
-            <button class="btn btn-sm btn-primary m-2">More Info</button>
+            <button class="complaints-made btn btn-sm btn-primary m-2">More Info</button>
           </div>
         </div>
       </div>
@@ -109,9 +109,9 @@ include_once "includes/dbh.inc.php";
             </div>
             <h2 class="fs-4 fw-bold">Total Bookings</h2>
             <h3 class="mb-0">
-              30
+            <?php echo totalBookings($conn) ?>
             </h3>
-            <button class="btn btn-sm btn-primary m-2">More Info</button>
+            <button class="total-bookings btn btn-sm btn-primary m-2">More Info</button>
           </div>
         </div>
       </div>
@@ -186,7 +186,7 @@ include_once "includes/dbh.inc.php";
                           </select>
                       </td>
                       <td>&#8377;990</td>
-                      <td><span><button class="btn btn-sm btn-danger">Remove Booking</button></span></td>
+                      <td><span><button class="btn btn-sm btn-warning">Update Status</button></span></td>
                     </tr>';
                     $sr = $sr + 1;
                     }
@@ -231,24 +231,44 @@ include_once "includes/dbh.inc.php";
                 <th scope="col">Email</th> 
                 <th scope="col">Address</th> 
                 <th scope="col">Total Bookings</th> 
-                <th scope="col">Status</th>
-                <th scope="col">Price</th>
+                
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th>01</th>
-                <td>1001</td>
-                <td>Abhay Pardeshi</td>
-                <td>8999401355</td>
-                <td>1002</td>
-                <td>31/09/2021</td>
-                <td>Delivered</td>
-                <td>&#8377;990</td>
-                <td><button class="btn btn-sm btn-info">View Complaints</button></td>
-                <td><span><button class="btn btn-sm btn-danger">Remove Customer</button></span></td>
-              </tr>
-              
+                <?php
+                    $sql = "SELECT * FROM Customer";
+                    $results = mysqli_query($conn, $sql);
+                    $resultCheck = mysqli_num_rows($results);
+                    if($resultCheck >0){
+                      $sr = 1;
+                      while($row = mysqli_fetch_assoc($results)){
+                        $id = $row["consumer_id"];
+                        $name = $row["consumer_name"];
+                        $mobileNo = $row["consumer_mob"];
+                        $email = $row["consumer_email"];
+                        $address = $row["consumer_address"];
+                        $city = $row["consumer_city"];
+                        $pincode = $row["consumer_pincode"];
+                        $totalBookings = bookingsNo($conn , $id);
+                        echo '<th>'.$sr.'</th>
+                        <td>'.$id.'</td>
+                        <td>'.$name.'</td>
+                        <td>'.$mobileNo.'</td>
+                        <td>'.$email.'</td>
+                        <td>'.$address.' '.$city.'-'.$pincode.'</td>
+                        <td>'.$totalBookings.'</td>
+                        <td><form action="./complaint.php" method="GET"><button type="submit" name="complaint" value="'.$id.'" class="btn btn-sm btn-info" >View Complaints</button></form></td>
+                        <td><span><form action="includes/delete.inc.php" method="POST"><button type="submit" name="remove" value="'.$id.'" class="btn btn-sm btn-danger">Remove Customer</button></form></span></td>
+                      </tr>
+                      ';
+                        $sr = $sr +1;
+                      }
+                    }
+                        
+    
+                ?>
+
             </tbody>
           </table>
         </div>
@@ -256,6 +276,8 @@ include_once "includes/dbh.inc.php";
     </div>
   </div>
 </div>
+
+
 
 
 
@@ -292,6 +314,11 @@ include_once "includes/dbh.inc.php";
             </thead>
             <tbody>
               <tr>
+                <?php 
+
+                    
+                
+                ?>
                 <th>01</th>
                 <td>1001</td>
                 <td>Abhay Pardeshi</td>

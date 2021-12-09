@@ -60,4 +60,63 @@
         mysqli_stmt_close($stmt);
     }
 
+    function bookingsNo($conn , $id){
+        $sql = "SELECT * FROM Booking WHERE consumer_id=$id";
+        $results = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($results);
+        if($resultCheck > 0){
+            return $resultCheck;
+        }else{
+            return 0;
+        }
+       
+    }
+
+    function totalCustomers($conn){
+        $sql = "SELECT * FROM Customer";
+        $results = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($results);
+        if($resultCheck > 0){
+            return $resultCheck;
+        }else{
+            return 0;
+        }
+       
+    }
+
+    function totalBookings($conn){
+        $sql = "SELECT * FROM Booking";
+        $results = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($results);
+        if($resultCheck > 0){
+            return $resultCheck;
+        }else{
+            return 0;
+        }
+       
+    }
+    function deliveredBookings($conn){
+        $sql = "SELECT * FROM Booking WHERE status_field ='Delivered'";
+        $results = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($results);
+        if($resultCheck > 0){
+            return $resultCheck;
+        }else{
+            return 0;
+        }
+       
+    }
+
+    function totalComplaints($conn){
+        $sql = "SELECT * FROM Booking";
+        $results = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($results);
+        if($resultCheck > 0){
+            return $resultCheck;
+        }else{
+            return 0;
+        }
+       
+    }
+
 ?>

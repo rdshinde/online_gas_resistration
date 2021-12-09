@@ -88,6 +88,8 @@
     </div>
     <!-- Copyright -->
   </footer>
-  
+  <?php include_once 'src/script.php' ?>
+</body>
+</html>
 
 <!-- End of .container -->
