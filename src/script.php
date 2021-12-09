@@ -249,4 +249,96 @@ const deliveredBookingsStr = `<!-- BOOKINGS -->
     </div>
   </div>
 </div>`;
+
+
+const complaintsStr = `<!-- Complaints -->
+<div class="container px-lg-2 my-5">
+  <div class="p-1 p-lg-2 rounded-3">
+    <h1 class="display-5 text-center">Complaints</h1>
+    <div class="m-1 m-lg-1">
+      <section>
+        <div
+          class="
+            container
+            table-responsive
+            shadow
+            p-3
+            rounded
+            border
+            col-lg-6 col-xxl-12 col-centered
+            text-center
+          "
+        >
+          <table class="table table-hover p-3">
+            <thead>
+              <tr>
+                <th scope="col">Sr.No.</th> 
+                <th scope="col">Consumer ID</th> 
+                <th scope="col">Complaint ID</th> 
+                <th scope="col">Booking ID</th> 
+                <th scope="col">Date</th> 
+                <th scope="col">Status</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <?php 
+                    $sql = "SELECT * FROM Complaints";
+                    $results = mysqli_query($conn, $sql);
+                    $resultCheck = mysqli_num_rows($results);
+                    if($resultCheck >0){
+                      $sr = 1;
+                      while($row = mysqli_fetch_assoc($results)){
+                        $id = $row["consumer_id"];
+                        $userInfo = userData($conn , $id);
+                        $name = $userInfo["consumer_name"];
+                        
+                        $mobileNo = $userInfo["consumer_mob"];
+                        $bookingId = $row["booking_id"];
+                        $status = $row["complaint_status"];
+                        $date = $row["date_field"];
+                        $complaintID = $row["complaint_id"];
+                        $complaint = $row["complaint_details"];
+                        echo '<th>'.$sr.'</th>
+                        <td>'.$id.'</td>
+                        <td>'.$complaintID.'</td>
+                        <td>'.$bookingId.'</td>
+                        <td>3'.$date.'</td>
+                        <td>'.$status.'</td>
+                        <td>&#8377;990</td>
+                        <td><span><button class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">View Complaint</button></span></td>
+                        <td><button class="btn btn-sm btn-warning">Message</button></td>
+                      </tr>
+                      <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Complaint</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                '.$complaint.'
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>';
+                        $sr = $sr + 1;
+                      }
+                    }
+                    
+                
+                ?>
+                
+              
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+`;
 </script>
