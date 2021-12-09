@@ -123,9 +123,10 @@ const bookingsStr = `<!-- BOOKINGS -->
                 <th scope="col">Booking ID</th> 
                 <th scope="col">Customer Name</th> 
                 <th scope="col">Mobile No.</th> 
-                <th scope="col">Address</th> 
+                <th scope="col">Address</th>
+                <th scope="col">Price</th> 
                 <th scope="col">Status</th>
-                <th scope="col">Price</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -152,13 +153,17 @@ const bookingsStr = `<!-- BOOKINGS -->
                       <td>'.$name.'</td>
                       <td>'.$mobileNo.'</td>
                       <td>'.$address.' '.$city.'-'.$pincode.'</td>
-                      <td><select class="form-select form-select-sm">
-                            <option value="pending">Pending</option>
-                            <option value="delivered">Delivered</option>
-                          </select>
-                      </td>
                       <td>&#8377;990</td>
-                      <td><span><button class="btn btn-sm btn-warning">Update Status</button></span></td>
+                      
+                        <td>
+                            <form action="includes/change_status.inc.php" method="GET">
+                                <select name="status" class="form-select form-select-sm">
+                                      <option value="Pending">Pending</option>
+                                      <option value="Delivered">Delivered</option>
+                                </select>
+                                <button type="submit" name="id" value="'.$bookingId.'" class="btn btn-sm btn-warning m-1">Update Status</button>
+                            </form>
+                      <td>
                     </tr>';
                     $sr = $sr + 1;
                     }
@@ -279,6 +284,7 @@ const complaintsStr = `<!-- Complaints -->
                 <th scope="col">Date</th> 
                 <th scope="col">Status</th>
                 <th scope="col">Price</th>
+                <th scope="col">Details</th>
               </tr>
             </thead>
             <tbody>
@@ -304,27 +310,13 @@ const complaintsStr = `<!-- Complaints -->
                         <td>'.$id.'</td>
                         <td>'.$complaintID.'</td>
                         <td>'.$bookingId.'</td>
-                        <td>3'.$date.'</td>
+                        <td>'.$date.'</td>
                         <td>'.$status.'</td>
                         <td>&#8377;990</td>
-                        <td><span><button class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">View Complaint</button></span></td>
+                        <td>'.$complaint.'</td>
                         <td><button class="btn btn-sm btn-warning">Message</button></td>
                       </tr>
-                      <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Complaint</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body">
-                                '.$complaint.'
-                              </div>
-                              
-                            </div>
-                          </div>
-                        </div>';
+                      ';
                         $sr = $sr + 1;
                       }
                     }

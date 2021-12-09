@@ -15,6 +15,11 @@ include_once "includes/functions.inc.php";
                   <b>Booking Made Successfully!</b>
                 </div>';
               }
+              else if($_GET['err'] == "complaint-registered"){
+                  echo '<div class="alert alert-success" role="alert">
+                  <b>Complaint Registered Successfully!</b>
+                </div>';
+              }
             }
           ?>
   </div>

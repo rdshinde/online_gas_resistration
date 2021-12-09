@@ -3,7 +3,24 @@ include_once "public/base.php";
 include_once "includes/functions.inc.php";
 include_once "includes/dbh.inc.php";
 ?>
-
+<section>
+  <div class="col-md-12 mt-1 text-center">
+        <?php
+            if(isset($_GET['err'])){
+              if($_GET['err'] == "removed"){
+                  echo '<div class="alert alert-warning" role="alert">
+                  <b>Customer Removed Successfully!</b>
+                </div>';
+              }
+              else if($_GET['err'] == "status-changed"){
+                  echo '<div class="alert alert-warning" role="alert">
+                  <b>Booking Status Changed Successfully!</b>
+                </div>';
+              }
+            }
+          ?>
+  </div>
+</section>
 <section class="py-5 my-5">
   <div class="container px-lg-5 ">
     <!-- Page Features-->
