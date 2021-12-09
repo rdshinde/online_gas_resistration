@@ -1,6 +1,7 @@
 <?php
 include_once "public/base.php";
 include_once "includes/dbh.inc.php";
+include_once "includes/functions.inc.php";
 ?>
 
 <!-- Page Content-->
@@ -126,7 +127,11 @@ include_once "includes/dbh.inc.php";
               </div>
               <h2 class="fs-4 fw-bold">Total Bookings.</h2>
               <h2 class="mb-0">
-                    10
+                    <?php 
+                    $id = $_SESSION["consumerID"];
+                    
+                    echo customerBookings($conn, $id)
+                    ?>
               </h2>
             </div>
           </div>
@@ -148,7 +153,11 @@ include_once "includes/dbh.inc.php";
               </div>
               <h2 class="fs-4 fw-bold">Bookings Delivered Successfully.</h2>
               <h2 class="mb-0">
-                    09
+              <?php 
+                    $id = $_SESSION["consumerID"];
+                    
+                    echo deliveredCustomerBookings($conn, $id)
+                    ?>
               </h2>
             </div>
           </div>

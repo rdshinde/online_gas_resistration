@@ -119,4 +119,27 @@
        
     }
 
+    function customerBookings($conn, $id){
+        $sql = "SELECT * FROM Booking WHERE consumer_id=$id";
+        $results = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($results);
+        if($resultCheck > 0){
+            return $resultCheck;
+        }else{
+            return 0;
+        }
+       
+    }
+    function deliveredCustomerBookings($conn, $id){
+        $sql = "SELECT * FROM Booking WHERE consumer_id=$id AND status_field='Delivered'";
+        $results = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($results);
+        if($resultCheck > 0){
+            return $resultCheck;
+        }else{
+            return 0;
+        }
+       
+    }
+
 ?>
