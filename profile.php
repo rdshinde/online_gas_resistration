@@ -117,10 +117,12 @@ include_once "includes/functions.inc.php";
             <div><h2 class="display-5">Messages</h2></div>
           </div>
           <?php
+              include_once "includes/dbh.inc.php";
               $id = $_SESSION["consumerID"];
               
-              $sql = "SELECT * FROM Messages WHERE consumer_id='3'";
+              $sql = "SELECT * FROM Messages WHERE consumer_id=$id";
               $results = mysqli_query($conn, $sql);
+              
               $resultCheck = mysqli_num_rows($results);
               if($resultCheck > 0){
                 while($row = mysqli_fetch_assoc($results)){
@@ -128,8 +130,8 @@ include_once "includes/functions.inc.php";
                   $complaint_id = $row["complaint_id"];
                   $message = $row["cmessage"];
                   
-                  echo'<div class="msg bg-dark text-light rounded-3 m-2">
-                          <small class="mb-0 p-2">'.$complaint_id.' for Booking No. '.$booking_id.'</small>
+                  echo'<div class="msg bg-primary text-light rounded-3 m-2">
+                          <small class="mb-0 p-2">Message for Complaint ID: '.$complaint_id.' for Booking No:'.$booking_id.'</small>
                           <p class="mb-0 p-2 lead">'.$message.'</p>
                       </div>';
                 }
