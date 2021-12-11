@@ -22,6 +22,16 @@ include_once "includes/dbh.inc.php";
                   <b>Failed to change booking status!</b>
                 </div>';
               }
+              else if($_GET['err'] == "message-sent"){
+                  echo '<div class="alert alert-success" role="alert">
+                  <b>Message sent successfully!</b>
+                </div>';
+              }
+              else if($_GET['err'] == "not-csent"){
+                  echo '<div class="alert alert-danger" role="alert">
+                  <b>Failed to send message!</b>
+                </div>';
+              }
             }
           ?>
   </div>

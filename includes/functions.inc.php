@@ -35,6 +35,21 @@
         }
     }
 
+    function sendMessage($conn, $consumer_id, $booking_id, $complaint_id, $message){
+        $sql = "INSERT INTO Messages (consumer_id, booking_id , complaint_id , cmessage) VALUES (?, ?, ?, ?)";
+        $stmt = mysqli_stmt_init($conn);
+        if(! mysqli_stmt_prepare($stmt,$sql)){
+            header("location: ../Admin.php?err=stmtFailed");
+            exit();
+        }
+        else{
+            mysqli_stmt_bind_param($stmt, "ssss", $consumer_id, $booking_id, $complaint_id, $message);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+            header("location: ../Admin.php?err=message-sent");
+            exit();
+        }
+    }
 
 
     function userData($conn , $id){

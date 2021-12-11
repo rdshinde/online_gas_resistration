@@ -320,7 +320,7 @@ const complaintsStr = `<!-- Complaints -->
                         <td>'.$status.'</td>
                         <td>&#8377;990</td>
                         <td>'.$complaint.'</td>
-                        <td><button class="btn btn-sm btn-warning">Message</button></td>
+                        <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">Message</button></td>
                       </tr>
                       ';
                         $sr = $sr + 1;
@@ -330,10 +330,41 @@ const complaintsStr = `<!-- Complaints -->
                 
                 ?>
                 
-              
             </tbody>
           </table>
         </div>
+        <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Message</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <form action="includes/message.inc.php" method="POST">
+                          <div class="mb-3 text-start">
+                            <label for="consumer-id" class="form-label">Consumer ID</label>
+                            <input type="text" name="consumer-id" class="form-control" id="consumer-id" aria-describedby="emailHelp">
+                          </div>
+                          <div class="mb-3 text-start">
+                            <label for="booking-id" class="form-label">Booking ID</label>
+                            <input type="text" name="booking-id" class="form-control" id="booking-id" aria-describedby="emailHelp">
+                          </div>
+                          <div class="mb-3 text-start">
+                            <label for="complaint-id" class="form-label">Complaint ID</label>
+                            <input type="text" name="complaint-id" class="form-control" id="complaint-id" aria-describedby="emailHelp">
+                          </div>
+                          <div class="mb-3 text-start">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea type="text" name="message" class="form-control" id="message" aria-describedby="emailHelp"></textarea>
+                          </div>
+                          <button type="submit" name="send-message" class="btn btn-primary">Send Message</button>
+                        </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
       </section>
     </div>
   </div>
