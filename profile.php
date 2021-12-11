@@ -20,6 +20,16 @@ include_once "includes/functions.inc.php";
                   <b>Complaint Registered Successfully!</b>
                 </div>';
               }
+              else if($_GET['err'] == "profile-updated"){
+                  echo '<div class="alert alert-success" role="alert">
+                  <b>Profile Updated Successfully!</b>
+                </div>';
+              }
+              else if($_GET['err'] == "not-updated"){
+                  echo '<div class="alert alert-danger" role="alert">
+                  <b>Error in updating profile!</b>
+                </div>';
+              }
             }
           ?>
   </div>
@@ -39,35 +49,36 @@ include_once "includes/functions.inc.php";
                     <div class="">
                       <h1 class="display-3 mb-3 pb-2 text-center ">Your Profile</h1>
                       <div class="">
-                        <section class="booking">
+                        <section class="update-profile">
                           
                           <div class="">
-                            <form class="row g-3" method="POST" action="includes/booking.inc.php">
+                            <form class="row g-3" method="POST" action="includes/update_profile.inc.php">
                             <div class="col-md-6">
                                 <label for="consumer-id" class="form-label"
                                   >Consumer ID*</label
                                 >
-                                <input type="text" class="form-control" value="'.$_SESSION["consumerID"].'" readonly id="consumer-id" />
+                                <input type="text" name="consumer-id" class="form-control" value="'.$_SESSION["consumerID"].'" readonly id="consumer-id" />
                               </div>
                               <div class="col-md-6">
                                 <label for="mobile-no" class="form-label"
                                   >Mobile Number*</label
                                 >
-                                <input type="text" value="'.$_SESSION["mobileNo"].'" class="form-control" id="mobile-no" />
+                                <input type="text" name="mobile-no" value="'.$_SESSION["mobileNo"].'" class="form-control" id="mobile-no" />
                               </div>
                               <div class="col-md-6">
                                 <label for="email" class="form-label">Name*</label>
-                                <input type="email" value="'.$_SESSION["name"].'" class="form-control" id="email" />
+                                <input type="text" name="name" value="'.$_SESSION["name"].'" class="form-control" id="email" />
                               </div>
                               <div class="col-md-6">
                                 <label for="email" class="form-label">Email*</label>
-                                <input type="email" value="'.$_SESSION["email"].'" class="form-control" id="email" />
+                                <input type="email" name="email" value="'.$_SESSION["email"].'" class="form-control" id="email" />
                               </div>
                               
                               <div class="col-md-12">
                                 <label for="inputAddress" class="form-label">Address*</label>
                                 <input
                                   type="text"
+                                  name="address"
                                   class="form-control"
                                   id="inputAddress"
                                   value="'.$_SESSION["address"].'"
@@ -76,11 +87,11 @@ include_once "includes/functions.inc.php";
                   
                               <div class="col-md-7">
                                 <label for="inputCity" class="form-label">City</label>
-                                <input type="text" value="'.$_SESSION["city"].'" class="form-control" id="inputCity" />
+                                <input type="text" name="city" value="'.$_SESSION["city"].'" class="form-control" id="inputCity" />
                               </div>
                               <div class="col-md-5">
                                 <label for="inputZip" class="form-label">Pincode*</label>
-                                <input type="text" value="'.$_SESSION["pincode"].'" class="form-control" id="inputZip" />
+                                <input type="text" name="pincode" value="'.$_SESSION["pincode"].'" class="form-control" id="inputZip" />
                               </div>
                               <div class="col-12">
                                 

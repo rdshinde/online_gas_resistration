@@ -5,7 +5,7 @@ if(isset($_GET['id']) && isset($_GET['status'])){
     $id = $_GET['id'];
     $status = $_GET['status'];
     
-    $sql = "UPDATE Booking SET status_field=$status WHERE booking_id=$id"; 
+    $sql = "UPDATE Booking SET status_field='$status' WHERE booking_id=$id"; 
    
     
     if ( $result = mysqli_query($conn,$sql)) {

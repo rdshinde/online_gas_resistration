@@ -206,8 +206,9 @@ const deliveredBookingsStr = `<!-- BOOKINGS -->
                 <th scope="col">Customer Name</th> 
                 <th scope="col">Mobile No.</th> 
                 <th scope="col">Address</th> 
-                <th scope="col">Status</th>
                 <th scope="col">Price</th>
+                <th scope="col">Status</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -234,13 +235,18 @@ const deliveredBookingsStr = `<!-- BOOKINGS -->
                       <td>'.$name.'</td>
                       <td>'.$mobileNo.'</td>
                       <td>'.$address.' '.$city.'-'.$pincode.'</td>
-                      <td><select class="form-select form-select-sm">
-                            <option value="Pending">Pending</option>
-                            <option value="Delivered" selected>Delivered</option>
-                          </select>
-                      </td>
                       <td>&#8377;990</td>
-                      <td><span><button class="btn btn-sm btn-warning">Update Status</button></span></td>
+                      <td>
+                        <form action="includes/change_status.inc.php" method="GET">
+                          <select name="status" class="form-select form-select-sm">
+                              <option value="Pending">Pending</option>
+                              <option selected value="Delivered">Delivered</option>
+                          </select>
+                          <button type="submit" name="id" value="'.$bookingId.'" class="btn btn-sm btn-warning m-1">Update Status</button>
+                        </form>
+                      </td>
+                      
+                      
                     </tr>';
                     $sr = $sr + 1;
                     }
