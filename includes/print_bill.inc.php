@@ -1,86 +1,98 @@
+<?php
+	include_once '../public/base.php';
+	include_once 'dbh.inc.php';
+	include_once 'functions.inc.php';
+	
+	if(isset($_GET["err"])){
+		$id = $_GET["err"];
+		$sql = "SELECT * FROM Booking WHERE booking_id=$id";
+                    $results = mysqli_query($conn, $sql);
+                    $resultCheck = mysqli_num_rows($results);
+                    if($resultCheck >0){
+						$row = mysqli_fetch_assoc($results);
+						$consumerID = $row["consumer_id"];
+						$time = $row["mtimestamp"];
+						$status = $row["status_field"];
+						$price = getBookingPrice($conn, $id);
+					}
+	}
+	
+?>
 
-
-
-<style>
-    .invoice-head td {
-    padding: 0 8px;
-}
-.container {
-  padding-top:30px;
-}
-.invoice-body{
-  background-color:transparent;
-}
-.invoice-thank{
-  margin-top: 60px;
-  padding: 5px;
-}
-address{
-  margin-top:15px;
-}
-</style>
-
-<div id="divToPrint" style="display:none;">
+<div id="divToPrint" >
   <div>
   <div class="container" style="padding-top:30px;">
     	<div class="row">
     		<div class="span4">
-                <img src="http://webivorous.com/wp-content/uploads/2020/06/brand-logo-webivorous.png" class="img-rounded logo">
+				<h1 class="display-2">AAR Gas Agency</h1>
+                <!-- <img src="http://webivorous.com/wp-content/uploads/2020/06/brand-logo-webivorous.png" class="img-rounded logo"> -->
     			<address style="margin-top:15px;">
-			        <strong>Webivorous Web services Pvt. Ltd.</strong><br>
-                 
-			       35, Lajpat Nagar<br>
-                  Gurugram, Haryana-122001 (India)
+			        <strong>AAR Gas Agency Pvt. Ltd.</strong>
+						<p class="mb-0">Shivajinagar, Pune</p>
+						<p>Tal. Pune, Dist. Pune, State Maharashtra - 412001</p>
+			       
 		    	</address>
     		</div>
     		<div class="span4 well">
     			<table class="invoice-head" style="padding: 0 8px;">
     				<tbody>
     					<tr>
-    						<td class="pull-right"><strong>Customer #</strong></td>
-    						<td>21398324797234</td>
+    						<td class="pull-right"><strong>Customer ID</strong></td>
+    						<td><?php echo $consumerID ?></td>
     					</tr>
     					<tr>
-    						<td class="pull-right"><strong>Invoice #</strong></td>
-    						<td>2340</td>
+    						<td class="pull-right"><strong>Bill ID</strong></td>
+    						<td><?php echo $billID ?></td>
     					</tr>
     					<tr>
-    						<td class="pull-right"><strong>Date</strong></td>
-    						<td>10-08-2013</td>
+    						<td class="pull-right"><strong>Date & Time</strong></td>
+    						<td><?php echo $time ?></td>
     					</tr>
     					
     				</tbody>
     			</table>
     		</div>
     	</div>
-    	<div class="row">
+    	<div class="row pt-3">
     		<div class="span8">
-    			<h2>Invoice</h2>
+    			<h2 class="display-6">Invoice</h2>
     		</div>
     	</div>
-    	<div class="row">
-		  	<div class="span8 well invoice-body" style="background-color:transparent;">
+    	<div class="row m-1 m-lg-1">
+		  	<div class="
+            container
+            table-responsive
+            shadow
+            p-3
+            rounded
+            border-0
+            col-lg-6 col-xxl-12 col-centered
+            text-center
+			span8 well invoice-body
+          ">
 		  		<table class="table table-bordered">
 					<thead>
 						<tr>
-                          <th>Product</th>
-							<th>Description</th>
-                          <th>Month/Quantity</th>
-							<th>Amount</th>
+                          <th scope="col">Customer Name</th>
+							<th scope="col">Address</th>
+                          <th scope="col">Booking ID</th>
+                          <th scope="col">Booking Status</th>
+							<th scope="col">Amount</th>
 						</tr>
 					</thead>
 					<tbody>
 					<tr>
-						<td>SEO Bronze</td>
-						<td>www.swaransoft.com</td>
-						<td>8 Months</td>
-                      <td>$1000</td>
+						<td><?php echo $_SESSION["name"] ?></td>
+						<td><?php echo $_SESSION["address"].' '.$_SESSION["city"].' - '.$_SESSION["pincode"] ?></td>
+						<td><?php echo $id ?></td>
+						<td><?php echo $status ?></td>
+                      <td>&#8377;<?php echo $price ?></td>
 						</tr>
             <tr><td colspan="4"></td></tr>
 <tr>
 							<td colspan="2">&nbsp;</td>
 							<td><strong>Total</strong></td>
-							<td><strong>$1000.00</strong></td>
+							<td><strong>&#8377;<?php echo $price ?></strong></td>
 						</tr>
 					</tbody>
 				</table>
@@ -97,18 +109,18 @@ address{
   		        <strong>Phone:</strong>+91-124-111111
   	    	</div>
   	    	<div class="span3">
-  		        <strong>Email:</strong> <a href="web@webivorous.com">web@webivorous.com</a>
+  		        <strong>Email:</strong> <a href="mailto:info@aarmail.com">info@aarmail.com</a>
   	    	</div>
   	    	<div class="span3">
-  		        <strong>Website:</strong> <a href="http://webivorous.com">http://webivorous.com</a>
+  		        <strong>Website:</strong> <a href="../index.php">AAR Gas Agency.com</a>
   	    	</div>
   		</div>
     </div>
             
   </div>
 </div>
-<div>
-  <input type="button" value="print" onclick="PrintDiv();" />
+<div class="w-100 h-75 mt-5 d-flex justify-content-center align-items-center mb-5">
+  <input type="button" class="btn btn-primary" value="Print Bill" onclick="PrintDiv();" />
 </div>
 
 <script type="text/javascript">     
@@ -120,3 +132,7 @@ address{
         popupWin.document.close();
             }
  </script>
+
+<?php
+	include_once '../public/footer.php'
+?>

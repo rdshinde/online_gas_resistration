@@ -10,13 +10,11 @@
           <h5 class="text-uppercase mb-4">About company</h5>
   
           <p>
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-            voluptatum deleniti atque corrupti.
+            Our company is one of the leading online gas resgistration and delivery system in Maharashtra.
           </p>
   
           <p>
-            Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
-            molestias.
+            We are improving our customer base daily. Over 50,000 satisfied customers are connected with us.
           </p>
   
           <div class="mt-4">

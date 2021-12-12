@@ -1,5 +1,20 @@
 <?php
-
+function createBill($conn, $consumer_id , $booking_id){
+    $sql = "INSERT INTO Bills (booking_id , consumer_id, amount) VALUES (?, ?, ?)";
+    $stmt = mysqli_stmt_init($conn);
+    if(! mysqli_stmt_prepare($stmt,$sql)){
+        header("location: ../profile.php?err=stmtFailed");
+        exit();
+    }
+    else{
+        $amount = rand(850,1000);
+        mysqli_stmt_bind_param($stmt, "sss", $booking_id, $consumer_id, $amount);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        header("location: ../profile.php?err=none");
+        exit();
+    }
+}
     function makeBooking($conn, $consumerId, $mtimestamp){
         $sql = "INSERT INTO Booking (consumer_id, mtimestamp) VALUES (?, ?)";
 
@@ -13,10 +28,14 @@
             mysqli_stmt_bind_param($stmt, "ss", $consumerId, $mtimestamp);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
-            header("location: ../profile.php?err=none");
+            $last_id = mysqli_insert_id($conn);
+            createBill($conn, $consumerId , $last_id);
+            // header("location: ../profile.php?err=$last_id");
             exit();
         }
     }
+    
+
     function makeComplaint($conn, $consumerId, $bookingId, $complaint){
         $sql = "INSERT INTO Complaints (booking_id, complaint_details , consumer_id) VALUES (?, ? , ?)";
 
@@ -29,8 +48,10 @@
         else{
             mysqli_stmt_bind_param($stmt, "sss",$bookingId, $complaint,$consumerId,);
             mysqli_stmt_execute($stmt);
+            $lastBookingID = mysqli_insert_id($conn);
             mysqli_stmt_close($stmt);
-            header("location: ../profile.php?err=complaint-registered");
+            createBill($conn, $consumerId , $lastBookingID);
+            header('location: ../profile.php?err=complaint-registered');
             exit();
         }
     }
@@ -50,6 +71,8 @@
             exit();
         }
     }
+
+    
 
 
     function userData($conn , $id){
@@ -155,6 +178,18 @@
             return 0;
         }
        
+    }
+
+    function getBookingPrice($conn, $id){
+        $sql = "SELECT * FROM Bills WHERE booking_id=$id";
+        $results = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($results);
+        if($resultCheck > 0){
+            $row = mysqli_fetch_assoc($results);
+            return $row["amount"];
+        }else{
+            return "N/A";
+        }
     }
 
 ?>

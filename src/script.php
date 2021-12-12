@@ -147,13 +147,14 @@ const bookingsStr = `<!-- BOOKINGS -->
                       $address = $userInfo["consumer_address"];
                       $city = $userInfo["consumer_city"];
                       $pincode = $userInfo["consumer_pincode"];
+                      $price = getBookingPrice($conn, $bookingId);
                       echo '<th>'.$sr.'</th>
                       <td>'.$id.'</td>
                       <td>'.$bookingId.'</td>
                       <td>'.$name.'</td>
                       <td>'.$mobileNo.'</td>
                       <td>'.$address.' '.$city.'-'.$pincode.'</td>
-                      <td>&#8377;990</td>
+                      <td>&#8377;'.$price.'</td>
                       
                         <td>
                             <form action="includes/change_status.inc.php" method="GET">
@@ -229,13 +230,14 @@ const deliveredBookingsStr = `<!-- BOOKINGS -->
                       $address = $userInfo["consumer_address"];
                       $city = $userInfo["consumer_city"];
                       $pincode = $userInfo["consumer_pincode"];
+                      $price = getBookingPrice($conn, $bookingId);
                       echo '<th>'.$sr.'</th>
                       <td>'.$id.'</td>
                       <td>'.$bookingId.'</td>
                       <td>'.$name.'</td>
                       <td>'.$mobileNo.'</td>
                       <td>'.$address.' '.$city.'-'.$pincode.'</td>
-                      <td>&#8377;990</td>
+                      <td>&#8377;'.$price.'</td>
                       <td>
                         <form action="includes/change_status.inc.php" method="GET">
                           <select name="status" class="form-select form-select-sm">
@@ -312,13 +314,14 @@ const complaintsStr = `<!-- Complaints -->
                         $date = $row["date_field"];
                         $complaintID = $row["complaint_id"];
                         $complaint = $row["complaint_details"];
+                        $price = getBookingPrice($conn, $bookingId);
                         echo '<th>'.$sr.'</th>
                         <td>'.$id.'</td>
                         <td>'.$complaintID.'</td>
                         <td>'.$bookingId.'</td>
                         <td>'.$date.'</td>
                         <td>'.$status.'</td>
-                        <td>&#8377;990</td>
+                        <td>&#8377;'.$price.'</td>
                         <td>'.$complaint.'</td>
                         <td><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">Message</button></td>
                       </tr>

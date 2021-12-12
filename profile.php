@@ -214,7 +214,7 @@ include_once "includes/functions.inc.php";
                         <label for="consumer-id" class="form-label"
                           >Consumer ID*</label
                         >
-                        <input type="text" class="form-control" value="'.$_SESSION["consumerID"].'" readonly id="consumer-id" />
+                        <input type="number" class="form-control" name="consumer-id" value="'.$_SESSION["consumerID"].'" readonly id="consumer-id" />
                       </div>
                       <div class="col-md-3">
                         <label for="mobile-no" class="form-label"
@@ -319,14 +319,15 @@ include_once "includes/functions.inc.php";
                         $booking_id = $row["booking_id"];
                         $status = $row["status_field"];
                         $date = substr($row["mtimestamp"],0,10);
+                        $price = getBookingPrice($conn, $booking_id);
                         echo '<tr>
                                 <th>'.$sr.'</th>
                                 <td>'.$booking_id.'</td>
                                 <td>'.$date.'</td>
                                 <td>'.$status.'</td>
-                                <td>&#8377;990</td>
+                                <td>&#8377;'.$price.'</td>
                                 <td><span><button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Make Complaint</button></span></td>
-                                <td><button class="btn btn-sm btn-secondary">Download Bill</button></td>
+                                <td><a href="includes/print_bill.inc.php?err='.$booking_id.'" class="btn btn-sm btn-secondary">Download Bill</a></td>
                               </tr>
                              
                                 <!-- Modal -->
