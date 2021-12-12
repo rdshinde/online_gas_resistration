@@ -116,10 +116,9 @@ include_once "public/base.php"
                   >
                     <i class="bi bi-collection"></i>
                   </div>
-                  <h2 class="fs-4 fw-bold">Fresh new layout</h2>
+                  <h2 class="fs-4 fw-bold">Fully Online Platform</h2>
                   <p class="mb-0">
-                    With Bootstrap 5, we have created a fresh new layout for this
-                    template!
+                    A to Z online process of booking.
                   </p>
                 </div>
               </div>
@@ -139,7 +138,7 @@ include_once "public/base.php"
                   >
                     <i class="bi bi-cloud-download"></i>
                   </div>
-                  <h2 class="fs-4 fw-bold">Free to download</h2>
+                  <h2 class="fs-4 fw-bold">Download Bill Anytime</h2>
                   <p class="mb-0">Now you can download your bills anytime.</p>
                 </div>
               </div>
@@ -159,9 +158,9 @@ include_once "public/base.php"
                   >
                     <i class="bi bi-card-heading"></i>
                   </div>
-                  <h2 class="fs-4 fw-bold"></h2>
+                  <h2 class="fs-4 fw-bold">Complaint Box</h2>
                   <p class="mb-0">
-                    The heroic part of this template is the jumbotron hero header!
+                    You can make complaints for your bookings now!
                   </p>
                 </div>
               </div>

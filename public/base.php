@@ -35,7 +35,7 @@
     <!-- Responsive navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
       <div class="container px-lg-5">
-        <a class="navbar-brand" href="./index.php">AAR Gas Agency</a>
+        <a class="navbar-brand h1 mb-0" href="./index.php">AAR Gas Agency</a>
         <button
           class="navbar-toggler"
           type="button"
