@@ -14,6 +14,7 @@
 						$time = $row["mtimestamp"];
 						$status = $row["status_field"];
 						$price = getBookingPrice($conn, $id);
+						$billId =getBillId($conn, $id);
 					}
 	}
 	
@@ -38,15 +39,15 @@
     				<tbody>
     					<tr>
     						<td class="pull-right"><strong>Customer ID</strong></td>
-    						<td><?php echo $consumerID ?></td>
+    						<td> <?php echo $consumerID ?> </td>
     					</tr>
     					<tr>
     						<td class="pull-right"><strong>Bill ID</strong></td>
-    						<td><?php echo $billID ?></td>
+    						<td> <?php echo $billId ?> </td>
     					</tr>
     					<tr>
     						<td class="pull-right"><strong>Date & Time</strong></td>
-    						<td><?php echo $time ?></td>
+    						<td> <?php echo $time ?> </td>
     					</tr>
     					
     				</tbody>

@@ -159,4 +159,3 @@ function loginConsumer($conn,$email,$password){
 
 
 
-?>

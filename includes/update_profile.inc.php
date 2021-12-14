@@ -20,4 +20,3 @@ if(isset($_POST['edit-profile'])){
     }
     exit();
 }
-?>

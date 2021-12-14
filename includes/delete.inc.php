@@ -5,8 +5,7 @@ if(isset($_POST['remove'])){
     $id = $_POST['remove'];
     $query = "DELETE FROM Customer WHERE consumer_id=$id"; 
     $result = mysqli_query($conn,$query);
-    header('Location: ../Admin.php?err=removed');
+    header('Location: ../admin.php?err=removed');
     exit();
 }
 
-?>

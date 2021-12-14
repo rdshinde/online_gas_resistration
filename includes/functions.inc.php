@@ -1,4 +1,5 @@
 <?php
+ob_start();
 function createBill($conn, $consumer_id , $booking_id){
     $sql = "INSERT INTO Bills (booking_id , consumer_id, amount) VALUES (?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
@@ -7,7 +8,7 @@ function createBill($conn, $consumer_id , $booking_id){
         exit();
     }
     else{
-        $amount = rand(850,1000);
+        $amount = rand(910,925);
         mysqli_stmt_bind_param($stmt, "sss", $booking_id, $consumer_id, $amount);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
@@ -46,11 +47,11 @@ function createBill($conn, $consumer_id , $booking_id){
             exit();
         }
         else{
-            mysqli_stmt_bind_param($stmt, "sss",$bookingId, $complaint,$consumerId,);
+            mysqli_stmt_bind_param($stmt, "sss",$bookingId, $complaint,$consumerId);
             mysqli_stmt_execute($stmt);
             $lastBookingID = mysqli_insert_id($conn);
             mysqli_stmt_close($stmt);
-            createBill($conn, $consumerId , $lastBookingID);
+            
             header('location: ../profile.php?err=complaint-registered');
             exit();
         }
@@ -60,14 +61,14 @@ function createBill($conn, $consumer_id , $booking_id){
         $sql = "INSERT INTO Messages (consumer_id, booking_id , complaint_id , cmessage) VALUES (?, ?, ?, ?)";
         $stmt = mysqli_stmt_init($conn);
         if(! mysqli_stmt_prepare($stmt,$sql)){
-            header("location: ../Admin.php?err=stmtFailed");
+            header("location: ../admin.php?err=stmtFailed");
             exit();
         }
         else{
             mysqli_stmt_bind_param($stmt, "ssss", $consumer_id, $booking_id, $complaint_id, $message);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
-            header("location: ../Admin.php?err=message-sent");
+            header("location: ../admin.php?err=message-sent");
             exit();
         }
     }
@@ -146,7 +147,7 @@ function createBill($conn, $consumer_id , $booking_id){
     }
 
     function totalComplaints($conn){
-        $sql = "SELECT * FROM Booking";
+        $sql = "SELECT * FROM Complaints";
         $results = mysqli_query($conn, $sql);
         $resultCheck = mysqli_num_rows($results);
         if($resultCheck > 0){
@@ -191,5 +192,14 @@ function createBill($conn, $consumer_id , $booking_id){
             return "N/A";
         }
     }
-
-?>
+    function getBillId($conn, $id){
+        $sql = "SELECT * FROM Bills WHERE booking_id=$id";
+        $results = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($results);
+        if($resultCheck > 0){
+            $row = mysqli_fetch_assoc($results);
+            return $row["bill_id"];
+        }else{
+            return "N/A";
+        }
+    }

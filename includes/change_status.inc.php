@@ -9,9 +9,9 @@ if(isset($_GET['id']) && isset($_GET['status'])){
    
     
     if ( $result = mysqli_query($conn,$sql)) {
-        header('Location: ../Admin.php?err=status-changed');
+        header('Location: ../admin.php?err=status-changed');
       } else {
-        header('Location: ../Admin.php?err=not-changed');
+        header('Location: ../admin.php?err=not-changed');
       }
       
     
@@ -19,4 +19,3 @@ if(isset($_GET['id']) && isset($_GET['status'])){
 }
 
 
-?>

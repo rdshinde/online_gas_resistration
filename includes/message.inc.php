@@ -1,5 +1,3 @@
-
-
 <?php
     require_once "dbh.inc.php";
     require_once "functions.inc.php";
@@ -16,7 +14,6 @@ if(isset($_POST["send-message"])){
 
 }
 else{
-    header("location: ../Admin.php");
+    header("location: ../admin.php");
    
 }
-?>
