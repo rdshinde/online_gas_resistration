@@ -3,7 +3,7 @@
 $serverName = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
-$dbName = "online_gas_booling";
+$dbName = "online_gas_booking";
 
 $conn = mysqli_connect($serverName, $dbUsername, $dbPassword, $dbName);
 
