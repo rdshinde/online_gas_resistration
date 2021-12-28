@@ -1,2 +1,2 @@
-# online_gas-_resistration
+# online_gas_resistration
 DBMS Mini Project
